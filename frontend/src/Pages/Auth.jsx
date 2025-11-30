@@ -32,7 +32,7 @@ const Auth = () => {
       else {  
         const message = await axios.post("https://ai-cert.onrender.com/addUser", user);
 
-        if (message.data.message === "User Register succesfully") {
+        if (message.data.message === "User Register successfully") {
           const userInfo = {id: message.data.info.id, name: message.data.info.name};
           localStorage.setItem("userInfo", JSON.stringify(userInfo));
           navigate("/front");
