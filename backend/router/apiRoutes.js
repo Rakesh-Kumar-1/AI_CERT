@@ -2,9 +2,12 @@ import express from 'express';
 import pool from '../config/database.js';
 const router = express.Router();
 
+// Router for checking api connection
 router.get('/', (req, res) => {
   return res.status(200).json({ message: "API is working fine" });
 });
+
+// Router for login api
 router.post('/userVerify', async (req, res) => {  
   const { email, password } = req.body;
   try {
@@ -19,6 +22,7 @@ router.post('/userVerify', async (req, res) => {
   }
 });
 
+// Router for storing all new text
 router.post('/newhistory', async (req, res) => {
   const { oldWord, newWord, userId } = req.body;
   if (!newWord || !userId) {
@@ -54,6 +58,7 @@ router.post('/newhistory', async (req, res) => {
   }
 });
 
+// Router for sigup api
 router.post('/addUser', async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -68,6 +73,8 @@ router.post('/addUser', async (req, res) => {
     return res.status(500).json({ error: 'Registration error' });
   }
 });
+
+// Router for fetching old version file oflogin user
 router.get('/oldhistory/:id', async (req, res) => {
   try {
     const { id } = req.params;

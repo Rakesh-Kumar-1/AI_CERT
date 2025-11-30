@@ -28,7 +28,7 @@ const Front = () => {
   const formSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://ai-cert.onrender.com/newhistory', { ...user, userId: userInfo.id });
+      const response = await axios.post('https://ai-cert.onrender.com/newhistory', {...user, userId: userInfo.id });
       if (response.data.message === "Message inserted") {
         alert("Success! New history added.");
         setUser({ oldWord: "", newWord: "" });
@@ -42,8 +42,6 @@ const Front = () => {
 return (
     <div className="container">
       <h1 className="title">History Manager</h1>
-
-      {/* History Table Section */}
       <div className="history-box">
         <h2>Previous History</h2>
         {history.length === 0 ? (
@@ -76,25 +74,10 @@ return (
         )}
       </div>
 
-      {/* Form Section */}
       <form onSubmit={formSubmit} className="form-box">
         <h2>Add New Word Change</h2>
-        <input
-          type="text"
-          required
-          placeholder="Enter replacing word"
-          name="oldWord"
-          value={user.oldWord}
-          onChange={onchangeInput}
-        />
-        <input
-          type="text"
-          required
-          placeholder="Enter new word"
-          name="newWord"
-          value={user.newWord}
-          onChange={onchangeInput}
-        />
+        <input type="text" required placeholder="Enter replacing word" name="oldWord" value={user.oldWord} onChange={onchangeInput} />
+        <input type="text" required placeholder="Enter new word" name="newWord" value={user.newWord} onChange={onchangeInput} />
         <button type="submit">Submit</button>
       </form>
     </div>

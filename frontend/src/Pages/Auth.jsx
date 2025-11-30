@@ -53,34 +53,11 @@ const Auth = () => {
 
         <form onSubmit={formSubmit}>
           {role === 1 && (
-            <input 
-              type="text"
-              name="name"
-              value={user.name}
-              onChange={onchangeInput}
-              placeholder="Enter your name"
-              required
-            />
+            <input type="text" name="name" value={user.name} onChange={onchangeInput} placeholder="Enter your name" required />
           )}
           
-          <input 
-            type="email"
-            name="email"
-            value={user.email}
-            onChange={onchangeInput}
-            placeholder="Enter your email"
-            required
-          />
-          
-          <input 
-            type="password"
-            name="password"
-            value={user.password}
-            onChange={onchangeInput}
-            placeholder="Enter your password"
-            required
-          />
-
+          <input type="email" name="email" value={user.email} onChange={onchangeInput} placeholder="Enter your email" required />
+          <input type="password" name="password" value={user.password} onChange={onchangeInput} placeholder="Enter your password" required />
           <button type="submit" className="btn-primary">
             {role === 0 ? "Login" : "Sign Up"}
           </button>

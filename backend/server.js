@@ -13,8 +13,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// Below 2 module are databse table connection
 createUser();
 createChat();
+
+// Routes will go to router folder
 app.use('/',router); 
 
 app.listen(process.env.PORT,()=>{
