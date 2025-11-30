@@ -76,7 +76,7 @@ return (
 
       <form onSubmit={formSubmit} className="form-box">
         <h2>Add New Word Change</h2>
-        <input type="text" required placeholder="Enter replacing word" name="oldWord" value={user.oldWord} onChange={onchangeInput} />
+        <input type="text" placeholder="Enter replacing word" name="oldWord" value={user.oldWord} onChange={onchangeInput} />
         <input type="text" required placeholder="Enter new word" name="newWord" value={user.newWord} onChange={onchangeInput} />
         <button type="submit">Submit</button>
       </form>
