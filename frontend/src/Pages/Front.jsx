@@ -9,7 +9,7 @@ const Front = () => {
 
   async function old_history() {
     try {
-      const response = await axios.get(`http://localhost:8000/oldhistory/${userInfo.id}`);
+      const response = await axios.get(`https://ai-cert.onrender.com/oldhistory/${userInfo.id}`);
       setHistory(response.data.info);
     } catch (error) {
       console.error("Error fetching history:", error);
@@ -28,7 +28,7 @@ const Front = () => {
   const formSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/newhistory', { ...user, userId: userInfo.id });
+      const response = await axios.post('https://ai-cert.onrender.com/newhistory', { ...user, userId: userInfo.id });
       if (response.data.message === "Message inserted") {
         alert("Success! New history added.");
         setUser({ oldWord: "", newWord: "" });

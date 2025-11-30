@@ -19,7 +19,7 @@ const Auth = () => {
     e.preventDefault(); 
     try {
       if (role === 0) { 
-        const message = await axios.post("http://localhost:8000/userVerify", user);
+        const message = await axios.post("https://ai-cert.onrender.com/userVerify", user);
         
         if (message.data.message === "login Successfully") {
           const userInfo = {id: message.data.info.id, name: message.data.info.name};
@@ -30,7 +30,7 @@ const Auth = () => {
         }
       } 
       else {  
-        const message = await axios.post("http://localhost:8000/addUser", user);
+        const message = await axios.post("https://ai-cert.onrender.com/addUser", user);
 
         if (message.data.message === "User Register succesfully") {
           const userInfo = {id: message.data.info.id, name: message.data.info.name};
